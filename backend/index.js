@@ -8,6 +8,14 @@ const app  = express();
 
 app.use(express.json());
 
+//middleware handling cors policy
+app.use(cors({
+    origin:'http://localhost:3000',
+    methods:['GET','POST','PUT','DELETE'],
+    allowedHeaders:['Content-Type']
+}))
+
+
 app.get('/',(req,res) => {
     console.log(req);
     return res.status(234).send('Welcome to mern stack Tutorial');
